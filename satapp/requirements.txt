@@ -1,0 +1,4 @@
+mod_wsgi
+falcon
+ujson
+psycopg2
