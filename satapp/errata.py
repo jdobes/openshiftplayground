@@ -153,10 +153,10 @@ def process(filename, cursor):
         e = None
 
     channels = get_channels(cursor, n, v, r, e, a)
-    families = get_channel_families(cursor, tuple(set([ x['channel_id'] for x in channels])))
-    packages = get_result(cursor, n, v, r, e, a, tuple(set([ x['id'] for x in families])))
-    get_erratas(cursor, tuple(set([ x['package_id'] for x in packages])))
-    res = get_all(cursor, tuple(set([ x['package_id'] for x in packages])))
+    families = get_channel_families(cursor, tuple(set([ x['channel_id'] for x in channels]) or set([None])))
+    packages = get_result(cursor, n, v, r, e, a, tuple(set([ x['id'] for x in families]) or set([None])))
+    get_erratas(cursor, tuple(set([ x['package_id'] for x in packages]) or set([None])))
+    res = get_all(cursor, tuple(set([ x['package_id'] for x in packages]) or set([None])))
     return res
 
 def main():
