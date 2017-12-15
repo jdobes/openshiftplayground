@@ -1,4 +1,4 @@
-FROM rhel:latest
+FROM eee/rhel7:latest
 
 RUN yum-config-manager --enable rhel-7-server-optional-rpms
 RUN yum -y install golang git && yum clean all
